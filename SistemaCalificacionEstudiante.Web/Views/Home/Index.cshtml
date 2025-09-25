@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Página de Inicio";
+}
+
+<link rel="stylesheet" href="~/css/home.css" />
+
+<div class="hero-section">
+    <h1 class="display-4">Bienvenido al Sistema de Calificaciones</h1>
+    <p>Gestiona las calificaciones de tus estudiantes de manera fácil, rápida y eficiente.</p>
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-cta btn-cta-primary" asp-controller="Students" asp-action="Index">Ver Estudiantes</a>
+    }
+    else
+    {
+        <a class="btn btn-cta btn-cta-primary" asp-controller="Account" asp-action="Register">Comienza Ahora</a>
+    }
+</div>
+
+<div class="container features-section">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Gestión de Estudiantes</h3>
+                <p>Añade, edita y visualiza la información de todos tus estudiantes en un solo lugar.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <h3>Registro de Notas</h3>
+                <p>Asigna y actualiza calificaciones de manera intuitiva para cada materia y estudiante.</p>
+            </div>
+        </div>
+</div>
