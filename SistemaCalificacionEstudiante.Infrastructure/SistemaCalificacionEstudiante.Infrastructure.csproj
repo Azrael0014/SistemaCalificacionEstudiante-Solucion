@@ -16,7 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SistemaCalificacionEstudiante.Domain\SistemaCalificacionEstudiante.Domain.csproj" />
+    <Reference Include="SistemaCalificacionEstudiante.Application">
+      <HintPath>..\SistemaCalificacionEstudiante.Application\bin\Debug\net8.0\SistemaCalificacionEstudiante.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="SistemaCalificacionEstudiante.Domain">
+      <HintPath>..\SistemaCalificacionEstudiante.Application\bin\Debug\net8.0\SistemaCalificacionEstudiante.Domain.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
