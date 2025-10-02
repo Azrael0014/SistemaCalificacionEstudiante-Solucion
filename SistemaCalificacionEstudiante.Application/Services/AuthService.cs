@@ -28,7 +28,7 @@ namespace SistemaCalificacionEstudiante.Application.Services
             {
                 Username = registerDto.Username,
                 Email = registerDto.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password) // FIX: Use BCrypt.Net.BCrypt
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password) 
             };
 
             await _userRepository.AddAsync(user);
@@ -46,7 +46,7 @@ namespace SistemaCalificacionEstudiante.Application.Services
                 return false;
             }
 
-            return BCrypt.Net.BCrypt.Verify(password, user.PasswordHash); // FIX: Use BCrypt.Net.BCrypt
+            return BCrypt.Net.BCrypt.Verify(password, user.PasswordHash); 
         }
     }
 }
