@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using SistemaCalificacionEstudiante.Application.DTOs;
 using SistemaCalificacionEstudiante.Application.Interfaces;
-using SistemaCalificacionEstudiante.Application.Services;
 using SistemaCalificacionEstudiante.Web.Models;
 using System.Security.Claims;
 using System.Threading.Tasks;

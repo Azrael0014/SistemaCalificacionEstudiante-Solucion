@@ -1,10 +1,9 @@
+using SistemaCalificacionEstudiante.Application.Services;
+using SistemaCalificacionEstudiante.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using SistemaCalificacionEstudiante.Application.Interfaces;
-using SistemaCalificacionEstudiante.Application.Services;
-using SistemaCalificacionEstudiante.Application.Interfaces;
 using SistemaCalificacionEstudiante.Infrastructure.Context;
-using SistemaCalificacionEstudiante.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +17,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Inyectamos las dependencias de nuestros servicios y repositorios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+
 
 builder.Services.AddControllersWithViews();
 

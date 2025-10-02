@@ -1,0 +1,30 @@
+﻿@model SistemaCalificacionEstudiante.Domain.Entities.Student
+
+@{
+    ViewData["Title"] = "Borrar Estudiante";
+}
+
+<div class="container my-4">
+    <h1>@ViewData["Title"]</h1>
+    <h3 class="text-danger">¿Estás seguro de que quieres borrar a este estudiante?</h3>
+    <div class="card shadow-sm p-4 mt-3">
+        <h4>Estudiante</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FullName)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.FullName)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Age)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Age)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Carrera)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Carrera)</dd>
+        </dl>
+
+        <form asp-action="Delete" class="mt-3">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Borrar Definitivamente" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
