@@ -9,7 +9,7 @@
     <p>Gestiona las calificaciones de tus estudiantes de manera fácil, rápida y eficiente.</p>
     @if (User.Identity != null && User.Identity.IsAuthenticated)
     {
-        <a class="btn btn-cta btn-cta-primary" asp-controller="Students" asp-action="Index">Ver Estudiantes</a>
+        <a class="btn btn-cta btn-cta-primary" asp-controller="Student" asp-action="Index">Ver Estudiantes</a>
     }
     else
     {
