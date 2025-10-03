@@ -7,8 +7,6 @@ using SistemaCalificacionEstudiante.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 // Conexion a la DB
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
