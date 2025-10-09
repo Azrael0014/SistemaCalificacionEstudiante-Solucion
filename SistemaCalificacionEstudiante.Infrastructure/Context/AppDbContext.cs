@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using SistemaCalificacionEstudiante.Domain.Entities;
 using System;
 using System.Collections.Generic;
