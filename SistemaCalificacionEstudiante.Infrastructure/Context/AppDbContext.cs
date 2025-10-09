@@ -15,6 +15,7 @@ namespace SistemaCalificacionEstudiante.Infrastructure.Context
         public DbSet<Student> Students { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Materia> Materias { get; set; }
+        public DbSet<Calificacion> Calificaciones { get; set; }
 
     }
 }

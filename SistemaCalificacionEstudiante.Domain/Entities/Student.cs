@@ -14,5 +14,6 @@ namespace SistemaCalificacionEstudiante.Domain.Entities
         public string? FullName { get; set; }
         public int Age { get; set; }
         public string? Carrera { get; set; }
+        public virtual ICollection<Calificacion> Calificaciones { get; set; }
     }
 }

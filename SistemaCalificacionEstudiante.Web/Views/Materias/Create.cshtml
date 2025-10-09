@@ -1,0 +1,43 @@
+﻿@model SistemaCalificacionEstudiante.Domain.Entities.Materia
+
+@{
+    ViewData["Title"] = "Crear Nueva Materia";
+}
+
+<div class="container my-4">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="CodigoMateria" class="form-label"></label>
+                        <input asp-for="CodigoMateria" class="form-control" />
+                        <span asp-validation-for="CodigoMateria" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Nombre" class="form-label"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ProfesorAsignado" class="form-label"></label>
+                        <input asp-for="ProfesorAsignado" class="form-control" />
+                        <span asp-validation-for="ProfesorAsignado" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Creditos" class="form-label"></label>
+                        <input asp-for="Creditos" class="form-control" type="number" />
+                        <span asp-validation-for="Creditos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-4">
+                        <input type="submit" value="Crear" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
