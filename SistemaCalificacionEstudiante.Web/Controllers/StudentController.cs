@@ -27,7 +27,11 @@ namespace SistemaCalificacionEstudiante.Web.Controllers
 
         public IActionResult Create()
         {
-            return View(new StudentDto());
+            var studentDto = new StudentDto
+            {
+                FechaInscripcion = DateTime.Today
+            };
+            return View(studentDto);
         }
 
         [HttpPost]
@@ -51,9 +55,12 @@ namespace SistemaCalificacionEstudiante.Web.Controllers
 
             var studentDto = new StudentDto
             {
+                Matricula = student.Matricula,
                 FullName = student.FullName,
                 Age = student.Age,
-                Carrera = student.Carrera
+                Carrera = student.Carrera,
+                Email = student.Email,
+                FechaInscripcion = student.FechaInscripcion
             };
             return View(studentDto);
         }

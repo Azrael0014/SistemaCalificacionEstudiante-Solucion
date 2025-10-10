@@ -27,7 +27,7 @@ public class MateriasController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Nombre,Creditos,CodigoMateria,ProfesorAsignado")] Materia materia)
+    public async Task<IActionResult> Create(Materia materia)
     {
         if (ModelState.IsValid)
         {
@@ -46,9 +46,10 @@ public class MateriasController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Creditos,CodigoMateria,ProfesorAsignado")] Materia materia)
+    public async Task<IActionResult> Edit(int id, Materia materia)
     {
         if (id != materia.Id) return NotFound();
+
         if (ModelState.IsValid)
         {
             await _materiaService.UpdateMateriaAsync(materia);

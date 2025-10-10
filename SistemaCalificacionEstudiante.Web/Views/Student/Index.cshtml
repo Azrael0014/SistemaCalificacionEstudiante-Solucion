@@ -18,9 +18,12 @@
         <table id="studentsTable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
+                    <th>Matrícula</th>
                     <th>Nombre Completo</th>
+                    <th>Email</th>
                     <th>Edad</th>
                     <th>Carrera</th>
+                    <th>Fecha de Inscripción</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -36,14 +39,22 @@
                     "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
                 },
                 "ajax": {
-                    "url": "/Student/GetAll", // Nota: el controlador se llama Student (singular)
+                    "url": "/Student/GetAll",
                     "type": "GET",
                     "datatype": "json"
                 },
                 "columns": [
+                    { "data": "matricula", "autoWidth": true },
                     { "data": "fullName", "autoWidth": true },
+                    { "data": "email", "autoWidth": true },
                     { "data": "age", "autoWidth": true },
                     { "data": "carrera", "autoWidth": true },
+                    {
+                        "data": "fechaInscripcion", 
+                        "render": function(data) {
+                            return new Date(data).toLocaleDateString();
+                        }
+                    },
                     {
                         "data": "id",
                         "render": function (data) {

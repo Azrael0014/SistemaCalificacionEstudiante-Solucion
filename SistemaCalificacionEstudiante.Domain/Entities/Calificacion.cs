@@ -7,14 +7,12 @@ namespace SistemaCalificacionEstudiante.Domain.Entities
     {
         public int Id { get; set; }
 
-        
-        [Required(ErrorMessage = "Debe seleccionar un estudiante.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Debe seleccionar un estudiante válido.")]
         public int EstudianteId { get; set; }
 
-        [Required(ErrorMessage = "Debe seleccionar una materia.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Debe seleccionar una materia válida.")]
         public int MateriaId { get; set; }
 
-        
         public virtual Student Estudiante { get; set; }
         public virtual Materia Materia { get; set; }
 
@@ -38,7 +36,8 @@ namespace SistemaCalificacionEstudiante.Domain.Entities
         [Range(0, 100, ErrorMessage = "La calificación del examen debe estar entre 0 y 100.")]
         public double Examen { get; set; }
 
-        [NotMapped] 
+
+        [NotMapped]
         public double TotalCalificacion
         {
             get

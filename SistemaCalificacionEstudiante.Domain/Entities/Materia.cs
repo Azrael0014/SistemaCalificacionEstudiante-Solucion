@@ -19,6 +19,6 @@ namespace SistemaCalificacionEstudiante.Domain.Entities
 
         [StringLength(100)]
         public string ProfesorAsignado { get; set; }
-        public virtual ICollection<Calificacion> Calificaciones { get; set; }
+        public virtual ICollection<Calificacion> Calificaciones { get; set; } = new List<Calificacion>();
     }
 }

@@ -29,9 +29,12 @@ namespace SistemaCalificacionEstudiante.Application.Services
         {
             var student = new Student
             {
+                Matricula = studentDto.Matricula,
                 FullName = studentDto.FullName,
                 Age = studentDto.Age,
-                Carrera = studentDto.Carrera
+                Carrera = studentDto.Carrera,
+                Email = studentDto.Email,
+                FechaInscripcion = studentDto.FechaInscripcion
             };
             await _studentRepository.AddAsync(student);
         }
@@ -41,9 +44,12 @@ namespace SistemaCalificacionEstudiante.Application.Services
             var studentToUpdate = await _studentRepository.GetByIdAsync(id);
             if (studentToUpdate != null)
             {
+                studentToUpdate.Matricula = studentDto.Matricula;
                 studentToUpdate.FullName = studentDto.FullName;
                 studentToUpdate.Age = studentDto.Age;
                 studentToUpdate.Carrera = studentDto.Carrera;
+                studentToUpdate.Email = studentDto.Email;
+                studentToUpdate.FechaInscripcion = studentDto.FechaInscripcion;
                 await _studentRepository.UpdateAsync(studentToUpdate);
             }
         }

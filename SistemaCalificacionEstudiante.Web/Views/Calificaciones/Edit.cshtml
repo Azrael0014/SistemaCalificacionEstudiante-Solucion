@@ -1,0 +1,82 @@
+﻿@model SistemaCalificacionEstudiante.Web.Models.CalificacionViewModel
+
+@{
+    ViewData["Title"] = "Editar Calificación";
+}
+
+<div class="container my-4">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (ViewBag.NombreEstudiante != null && ViewBag.NombreMateria != null)
+    {
+        <h4 class="text-muted">Editando registro para @ViewBag.NombreEstudiante en @ViewBag.NombreMateria</h4>
+    }
+
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label asp-for="EstudianteId" class="form-label">Estudiante</label>
+                            <select asp-for="EstudianteId" class="form-control" asp-items="ViewBag.Estudiantes">
+                                <option value="">-- Seleccione un Estudiante --</option>
+                            </select>
+                            <span asp-validation-for="EstudianteId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                            <label asp-for="MateriaId" class="form-label">Materia</label>
+                            <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.Materias">
+                                <option value="">-- Seleccione una Materia --</option>
+                            </select>
+                            <span asp-validation-for="MateriaId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <h5 class="mt-4">Notas Parciales</h5>
+                    <div class="row">
+                        <div class="col-md-3 form-group mb-3">
+                            <label asp-for="Calificacion1" class="form-label"></label>
+                            <input asp-for="Calificacion1" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Calificacion1" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label asp-for="Calificacion2" class="form-label"></label>
+                            <input asp-for="Calificacion2" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Calificacion2" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label asp-for="Calificacion3" class="form-label"></label>
+                            <input asp-for="Calificacion3" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Calificacion3" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 form-group mb-3">
+                            <label asp-for="Calificacion4" class="form-label"></label>
+                            <input asp-for="Calificacion4" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Calificacion4" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <h5 class="mt-4">Examen Final</h5>
+                    <div class="row">
+                        <div class="col-md-3 form-group mb-3">
+                            <label asp-for="Examen" class="form-label"></label>
+                            <input asp-for="Examen" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Examen" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

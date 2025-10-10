@@ -18,4 +18,6 @@ namespace SistemaCalificacionEstudiante.Infrastructure.Context
         public DbSet<Calificacion> Calificaciones { get; set; }
 
     }
+
+    
 }
