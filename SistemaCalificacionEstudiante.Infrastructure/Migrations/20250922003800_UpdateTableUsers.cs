@@ -10,14 +10,15 @@ namespace SistemaCalificacionEstudiante.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
+           /* migrationBuilder.AddColumn<string>(
                 name: "Email",
                 table: "Users",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: "");*/
         }
-
+        ///
+        
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
