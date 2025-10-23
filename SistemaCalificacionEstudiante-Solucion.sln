@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCalificacionEstudiante.Web", "SistemaCalificacionEstudiante.Web\SistemaCalificacionEstudiante.Web.csproj", "{BEAB7784-F1E9-4E2D-BB13-A466583CC5CC}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCalificacionEstudiante.Application", "SistemaCalificacionEstudiante.Application\SistemaCalificacionEstudiante.Application.csproj", "{A009AEF5-4151-4239-B0D7-138D23ED4AAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCalificacionEstudiante.Infrastructure", "SistemaCalificacionEstudiante.Infrastructure\SistemaCalificacionEstudiante.Infrastructure.csproj", "{EC16F798-7B1A-417D-A488-B0E0509B777A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCalificacionEstudiante.Api", "SistemaCalificacionEstudiante.Api\SistemaCalificacionEstudiante.Api.csproj", "{8D397F55-C0CB-47EB-9AE7-EFE5B544182A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EC16F798-7B1A-417D-A488-B0E0509B777A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC16F798-7B1A-417D-A488-B0E0509B777A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC16F798-7B1A-417D-A488-B0E0509B777A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D397F55-C0CB-47EB-9AE7-EFE5B544182A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D397F55-C0CB-47EB-9AE7-EFE5B544182A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D397F55-C0CB-47EB-9AE7-EFE5B544182A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D397F55-C0CB-47EB-9AE7-EFE5B544182A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

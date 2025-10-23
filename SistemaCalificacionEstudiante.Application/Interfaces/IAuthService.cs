@@ -11,8 +11,7 @@ namespace SistemaCalificacionEstudiante.Application.Interfaces
 {
     public interface IAuthService
     {
-        Task<bool> ValidateCredentialsAsync(string username, string password);
         Task<Result> RegisterUserAsync(RegisterUserDto registerDto);
-
+        Task<LoginResponse> LoginAsync(LoginRequest loginRequest);
     }
 }

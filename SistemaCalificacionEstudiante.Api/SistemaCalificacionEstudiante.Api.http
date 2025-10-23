@@ -1,0 +1,6 @@
+@SistemaCalificacionEstudiante.Api_HostAddress = http://localhost:5271
+
+GET {{SistemaCalificacionEstudiante.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
