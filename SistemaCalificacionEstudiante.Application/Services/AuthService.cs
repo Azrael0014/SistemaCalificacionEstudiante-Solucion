@@ -8,19 +8,19 @@ namespace SistemaCalificacionEstudiante.Application.Services
     public class AuthService : IAuthService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
-        public AuthService(IUserRepository userRepository)
+        public AuthService(IUserRepository userRepository, IJwtTokenGenerator jwtTokenGenerator)
         {
             _userRepository = userRepository;
+            _jwtTokenGenerator = jwtTokenGenerator;
         }
 
-        // Recibe el DTO y devuelve el objeto Result.
         public async Task<Result> RegisterUserAsync(RegisterUserDto registerDto)
         {
             var existingUser = await _userRepository.GetByUsernameAsync(registerDto.Username);
             if (existingUser != null)
             {
-                // Devolvemos un resultado de fallo con un mensaje claro.
                 return Result.Failure("El nombre de usuario ya está en uso.");
             }
 
@@ -28,25 +28,35 @@ namespace SistemaCalificacionEstudiante.Application.Services
             {
                 Username = registerDto.Username,
                 Email = registerDto.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password) 
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password)
             };
 
             await _userRepository.AddAsync(user);
-
-            // Devolvemos un resultado exitoso.
             return Result.Success();
         }
 
-        public async Task<bool> ValidateCredentialsAsync(string username, string password)
+        public async Task<LoginResponse> LoginAsync(LoginRequest loginRequest)
         {
-            var user = await _userRepository.GetByUsernameAsync(username);
+            var user = await _userRepository.GetByUsernameAsync(loginRequest.Username);
 
             if (user == null)
             {
-                return false;
+                return new LoginResponse { Success = false, Message = "Usuario o contraseña incorrectos." };
             }
 
-            return BCrypt.Net.BCrypt.Verify(password, user.PasswordHash); // FIX: Use BCrypt.Net.BCrypt
+            if (!BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.PasswordHash))
+            {
+                return new LoginResponse { Success = false, Message = "Usuario o contraseña incorrectos." };
+            }
+
+            var token = _jwtTokenGenerator.GenerateToken(user);
+
+            return new LoginResponse
+            {
+                Success = true,
+                Message = "Login exitoso.",
+                Token = token
+            };
         }
     }
 }
